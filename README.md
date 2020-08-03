@@ -1,4 +1,4 @@
 # gameboy
-pure CSS
-The original is here:
+pure CSS.
+Inspired by:
 https://codepen.io/brendamichellle/pen/abderQr
