@@ -1,0 +1,369 @@
+<!DOCTYPE html> 
+<html>
+<head> 
+	<meta charset="UTF-8"> <!-- Определяем кодировку символов документа -->
+	<title>...</title> <!-- Задаем заголовок документа -->
+	<style>
+		body {
+			background-color: pink;
+		}
+		#base {
+			position: relative;
+			top:30px;
+			margin:auto;
+			width:320px;
+			height:460px;
+			background-color: SandyBrown;
+			border-radius: 10px 10px 30px; 
+
+		}
+		.commonBord {
+			border:5px black solid;
+		}
+		.blackLine {
+			position:absolute;
+			background-color: black;
+			height:5px;
+			border:none;
+			border-radius: 2px;
+		}
+		#horBlackLine{
+			top: 15px;
+			width:323px;
+			left:-2px;
+		}
+		#verLeftBlackLine, #verRightBlackLine {
+			top: 2px;
+			width:25px;
+			transform: rotate(90deg);
+		}
+		#verLeftBlackLine {
+			left:15px;
+		}
+		#verRightBlackLine {
+			right:15px;
+		}
+
+		#phone {
+			position:absolute;	
+			width:50px;
+			height:5px;
+			left:40px;
+			top:5px;
+			border-radius:10px;
+			background-color:LightCoral;
+		}
+		#screenOuter {
+			position:absolute;
+			top:40px;
+			margin-left:30px;
+			width:250px;
+			height:140px;
+			border-radius: 10px 10px 30px; 
+			background-color:Gray;
+		}
+		#screenInner {
+			position:relative;
+			top:15px;
+			left:30px;
+			width:180px;
+			height:100px;
+			background-color:Lavender;
+		}
+		#longLine {
+			width:100px;
+			top:-2px;
+			left:10px;
+		}
+		#shortLine {
+			width:40px;
+			top:-2px;
+			right:20px;
+		}
+		#miniCircle {
+			position:absolute;
+			top:45%;
+			left:7px;
+			height:7px;
+			width:7px;
+			border-radius:50%;
+			background-color:white;
+		}
+
+		#circleControl {
+			position:absolute;
+			top:50%;
+			left:30px;
+			height:90px;
+			width:90px;
+			border-radius:50%;
+			background-color:orange;
+		}
+
+		.control {
+			background-color:silver;
+			border: 5px solid RosyBrown	;
+		} 
+
+		#leftRight,#upDown {
+			position:absolute;
+			top:35%;
+			left:10px;
+			height:20px;
+			width:60px;
+		}
+
+		#upDown {
+			transform:rotate(90deg);
+		}
+
+		#centerCircle {
+			position:absolute;
+			top:32px;
+			left:33%;
+			height:20px;
+			width:20px;
+			border-radius:50%;
+		}
+
+		#buttonsAB { 
+			position:absolute;
+			top:56%;
+			right:20px;
+			height:50px;
+			width:100px;
+			border-radius:30px;
+			background-color:orange;
+			transform:rotate(-25deg);
+		}
+		#butA, #butB {
+			position:absolute;
+			top:10%;
+			height:30px;
+			width:30px;
+			border-radius:50%;
+			background-color:red;
+		}
+		#butA {
+			left:5px;
+		}
+		#butB {
+			right:5px;
+		}
+
+#start, #select {
+	position:absolute;
+top:85%;
+width:40px;
+height:10px;
+border-radius:20px;
+transform:rotate(-30deg);
+}
+#start {
+left: 33%;
+}
+#select {
+right: 33%;
+}
+
+#blockSp {
+	position:absolute;
+	bottom:5px;
+	right:25px;
+	height:60px;
+	width:40px;
+transform:rotate(50deg);
+}
+
+.speaker {
+position:relative;
+	height: 7px;
+	width: 35px;
+	border:none;
+	border-radius: 5px;
+	background-color: brown;
+	margin:3px;
+float:left;
+}
+
+#connector {
+	position:absolute;
+	bottom:10px;
+	left:40%;
+	height:5px;
+	width:30px;
+	background-color:#FF6347;
+	border-radius:10px;
+}
+
+.lineConnector {
+	position:absolute;
+	bottom:-5px;
+	width:15px;
+	transform:rotate(90deg);
+}
+#lineCon1{
+	left:43%;
+}
+#lineCon2{
+	left:47%;
+}
+
+
+
+.figureBase {
+	height:10px;
+	width:35px;
+}
+
+#firstFigure {
+	position:relative;
+	top:26px;
+	left:0px;
+	background-color:Gold;
+	animation: goDown1 1s ;
+	animation-fill-mode: forwards;
+}
+#firstFigure::after { /*узнать можно ли сюда добавлять данные класса figureBase*/
+	content: '';
+	position:absolute;
+	top:-13.5px;
+	left:13px;
+	height:10px;
+	width:35px;
+	background-color:Gold;
+	transform:rotate(90deg);
+}
+
+#secondFigure {
+		position:relative;
+	top:3px;
+	left:25px;
+	background-color:blue;
+	transform:rotate(90deg);
+	animation: goDown2 1s 1s;
+	animation-fill-mode: forwards;
+}
+
+#thirdFigure {
+		position:relative;
+	top:-7px;
+	left:75px;
+	background-color:violet;
+	transform:rotate(90deg);
+	animation: goDown5 0.5s 4s;
+	animation-fill-mode: forwards;
+}
+#thirdFigure::before {
+content:'';
+position:absolute;
+	top:10px;
+	left:13px;
+	height:10px;
+	width:10px;
+	background-color:violet;
+}
+
+#fourthFigure {
+		position:relative;
+	top:-30px;
+	left:110px;
+	width:25px;
+	height:25px;
+	background-color:olive;
+	animation: goDown4 0.5s 3s;
+	animation-fill-mode: forwards;
+}
+
+#fifthFigure {
+		position:relative;
+	top:-50px;
+	left:145px;
+	background-color:CadetBlue;
+	animation: goDown3 1s 2s;
+	animation-fill-mode: forwards;
+}
+
+@keyframes goDown1 {
+	from {top:27px;}
+	to {top:90px;}
+}
+
+@keyframes goDown2 {
+	from {top:3px;}
+	to {top:67.5px;}
+}
+@keyframes goDown3 {
+	from {top:-50px;}
+	to {top:35px;}
+}
+@keyframes goDown4 {
+	from {top:-30px;}
+	to {top:45px;}
+}
+@keyframes goDown5 {
+	from {top:10px;}
+	to {top:57.5px;}
+}
+
+	</style>
+
+
+
+</head>
+<body> 
+
+	<div id='base' class='commonBord'>
+		<hr class='blackLine' id='horBlackLine'></hr>
+		<hr class='blackLine' id='verLeftBlackLine'></hr>
+		<hr class='blackLine' id='verRightBlackLine'></hr>
+		<div id='phone'  class='commonBord'></div>
+
+		<div id='screenOuter' class='commonBord'>
+			<hr class='blackLine' id='longLine'></hr>
+			<hr class='blackLine' id='shortLine'></hr>
+			<div id='miniCircle' class='commonBord'></div>
+			<div id='screenInner' class='commonBord'>
+				
+<div id='firstFigure' class='figureBase'></div>
+<div id='secondFigure' class='figureBase'></div>
+<div id='thirdFigure' class='figureBase'></div>
+<div id='fourthFigure'></div>
+<div id='fifthFigure' class='figureBase'></div>
+			</div>
+		</div>
+
+		<div id='circleControl' class='commonBord'>
+			<div id='upDown' class='control'></div>
+			<div id='leftRight' class='control'></div>
+			<div id='centerCircle' class='control'></div>
+		</div>
+
+
+		<div id="buttonsAB" class='commonBord'>
+			<div id='butA' class='commonBord'></div>
+			<div id='butB' class='commonBord'></div>
+		</div>
+
+		<div id='start' class='control'></div>
+        <div id='select' class='control'></div>
+
+        <div id='blockSp'>
+        <hr class='speaker'></hr>
+ <hr class='speaker'></hr>
+ <hr class='speaker'></hr>
+ <hr class='speaker'></hr>
+</div>
+
+<div id='connector' class='commonBord'></div>
+<hr id='lineCon1' class='lineConnector blackLine'></hr>
+<hr id='lineCon2' class='lineConnector blackLine'></hr>
+
+
+
+
+
+	</div>
+
+</body>
+</html>
